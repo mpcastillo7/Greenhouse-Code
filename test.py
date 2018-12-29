@@ -1,5 +1,8 @@
 """some test functions for stuff"""
 
+def average(a, b):
+    return a/2 + b/2
+
 def splice(lst1, lst2):
     """
     combines two lists into one list of ordered pairs
@@ -24,8 +27,18 @@ def splice(lst1, lst2):
     return list(zip(lst1, lst2))
 
 def averagedList(lst):
+    """
+    reduces the list to averaged intermediate values
+    >>> lst = [1, 1, 1]
+    >>> averagedList(lst)
+    [1.0, 1.0]
+    >>> averagedList([1, 2, 3, 4])
+    [1.5, 2.5, 3.5]
+    """
+    newLst = []
     for i in range(0, len(lst)-1):
-        lst[i] = 
+        newLst += [average(lst[i], lst[i+1])]
+    return newLst
 
 
 
