@@ -16,6 +16,7 @@ led.on() #indicates things good
 #graph settings
 graph.xlabel("Number of Intervals")
 graph.ylabel("Humidity Values (%)")
+graph.legend()
 
 #read DHT sensor for 2 minutes, 6 times a minute (every 10s) + graph data
 results = readDHT(2, pin, frequency=6)
