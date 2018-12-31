@@ -31,3 +31,10 @@ def readFor(mins, temps=[], humid=[], t=[]):
         sleep(15)
         led.on()
     return [temps, humid, t]
+
+def hPlot(humidity, t):
+    averagedHumidity = averagedList(humidity)
+    averagedTime = averagedList(t)
+    plt.plot(t, humidity, label="data")
+    plt.plot(averagedTime, averagedHumidity, label="average")
+    plt.show()
