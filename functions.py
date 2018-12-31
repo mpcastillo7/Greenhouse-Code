@@ -65,7 +65,7 @@ def readDHT(time, pin, temps=[], humid=[], t=[], frequency=4):
         humid += [humidity]
         temps += [temperature]
         t += [i]
-        sleep(int(mins))
+        sleep(int(time))
     return [temps, humid, t]
 
 #originally built to go with readDHT
