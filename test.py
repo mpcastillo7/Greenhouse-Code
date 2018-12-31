@@ -7,11 +7,13 @@ accuracy
 from gpiozero import LED
 from functions import *
 from matplotlib import pyplot as graph
+from devices import *
 
 #hardware configuration
 led = LED(22)
 pin = 4
 led.on() #indicates things good
+fan = Fan(27)
 
 #graph settings
 graph.xlabel("Number of Intervals")
