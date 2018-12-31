@@ -13,7 +13,6 @@ from devices import *
 led = LED(22)
 pin = 4
 led.on() #indicates things good
-fan = Fan(27)
 
 #graph settings
 graph.xlabel("Number of Intervals")
