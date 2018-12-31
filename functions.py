@@ -3,7 +3,7 @@
 #libraries used
 import Adafruit_DHT
 from matplotlib import pyplot as plt
-import time
+from time import sleep
 
 #generic functions
 def average(a, b):
@@ -48,7 +48,7 @@ def averagedList(lst):
 
 #specific functions
 read = Adafruit_DHT.read_retry
-def readDHT(time, temps=[], humid=[], t=[], pin, frequency=4):
+def readDHT(time, pin, temps=[], humid=[], t=[], frequency=4):
     """
     reads the Adafruit_DHT over some period of time expressed in integer minutes
     with an integer frequency of times/minute and returns the measured values in
@@ -69,12 +69,12 @@ def readDHT(time, temps=[], humid=[], t=[], pin, frequency=4):
     return [temps, humid, t]
 
 #originally built to go with readDHT
-def valuePlot(values, t):
+def valuePlot(values, t, graph):
     averagedValues = averagedList(values)
     averagedTime = averagedList(t)
-    plt.plot(t, humidity, label="data")
-    plt.plot(averagedTime, averagedValues, label="average")
-    plt.show()
+    graph.plot(t, humidity, label="data")
+    graph.plot(averagedTime, averagedValues, label="average")
+    graph.show()
 
 
 if __name__ == "__main__":
