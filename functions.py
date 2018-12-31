@@ -40,8 +40,6 @@ def averagedList(lst):
         newLst += [average(lst[i], lst[i+1])]
     return newLst
 
-
-
 if __name__ == "__main__":
     import doctest
     doctest.testmod()

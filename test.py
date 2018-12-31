@@ -19,9 +19,15 @@ led.on()
 plt.xlabel("Number of 15s Intervals")
 plt.ylabel("Humidity Values (%)")
 
-def hreadFor(mins, humidityVals=[], tempVals=[], t=[]):
-    minutes = 4*mins
-    return humidityVals, tempVals, t
-
-
 read = AdafruitDHT.read_retry
+def readFor(mins, temps=[], humid=[], t=[]):
+    minutes = 4*mins
+    for i in range(0, minutes):
+        humidity, temperature = read(sensor, pin)
+        humid += [humidity]
+        temps += [temperature]
+        t += i
+        led.off()
+        sleep(15)
+        led.on()
+    return [temps, humid, t]
