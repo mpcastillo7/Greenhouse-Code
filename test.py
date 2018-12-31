@@ -22,4 +22,4 @@ results = readDHT(2, pin, frequency=6)
 time = results[2]
 temperature = results[0]
 humidity = results[1]
-plotValues(temperature, time, graph)
+valuePlot(temperature, time, graph)
