@@ -19,14 +19,14 @@ led.on()
 plt.xlabel("Number of 15s Intervals")
 plt.ylabel("Humidity Values (%)")
 
-read = AdafruitDHT.read_retry
+read = Adafruit_DHT.read_retry
 def readFor(mins, temps=[], humid=[], t=[]):
     minutes = 4*mins
     for i in range(0, minutes):
         humidity, temperature = read(sensor, pin)
         humid += [humidity]
         temps += [temperature]
-        t += i
+        t += [i]
         led.off()
         sleep(15)
         led.on()
