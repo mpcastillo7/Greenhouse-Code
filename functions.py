@@ -72,7 +72,7 @@ def readDHT(time, pin, temps=[], humid=[], t=[], frequency=4):
 def valuePlot(values, t, graph):
     averagedValues = averagedList(values)
     averagedTime = averagedList(t)
-    graph.plot(t, humidity, label="data")
+    graph.plot(t, values, label="data")
     graph.plot(averagedTime, averagedValues, label="average")
     graph.show()
 
