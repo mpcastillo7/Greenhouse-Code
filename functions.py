@@ -59,7 +59,7 @@ def readDHT(time, pin, temps=[], humid=[], t=[], frequency=4):
     if not pin:
         raise ValueError("No pin specified")
     sensor = Adafruit_DHT.DHT22
-    minutes = int(frequency*mins)
+    minutes = int(frequency*time)
     for i in range(0, minutes):
         humidity, temperature = read(sensor, pin)
         humid += [humidity]
