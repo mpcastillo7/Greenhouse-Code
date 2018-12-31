@@ -1,5 +1,11 @@
-"""some test functions for stuff"""
+#functions useful for later stuff
 
+#libraries used
+import Adafruit_DHT
+from matplotlib import pyplot as plt
+import time
+
+#generic functions
 def average(a, b):
     return a/2 + b/2
 
@@ -39,6 +45,37 @@ def averagedList(lst):
     for i in range(0, len(lst)-1):
         newLst += [average(lst[i], lst[i+1])]
     return newLst
+
+#specific functions
+read = Adafruit_DHT.read_retry
+def readDHT(time, temps=[], humid=[], t=[], pin, frequency=4):
+    """
+    reads the Adafruit_DHT over some period of time expressed in integer minutes
+    with an integer frequency of times/minute and returns the measured values in
+    lists
+    """
+    if frequency > 30:
+        raise ValueError("Too frequent, sensor will be damaged")
+    if not pin:
+        raise ValueError("No pin specified")
+    sensor = Adafruit_DHT.DHT22
+    minutes = int(frequency*mins)
+    for i in range(0, minutes):
+        humidity, temperature = read(sensor, pin)
+        humid += [humidity]
+        temps += [temperature]
+        t += [i]
+        sleep(int(mins))
+    return [temps, humid, t]
+
+#originally built to go with readDHT
+def valuePlot(values, t):
+    averagedValues = averagedList(values)
+    averagedTime = averagedList(t)
+    plt.plot(t, humidity, label="data")
+    plt.plot(averagedTime, averagedValues, label="average")
+    plt.show()
+
 
 if __name__ == "__main__":
     import doctest
