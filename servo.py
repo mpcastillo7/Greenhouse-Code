@@ -1,5 +1,5 @@
 from gpiozero import AngularServo
-from time import
+from time import sleep
 
 s = AngularServo(17, min_angle=-80, max_angle=80)
 s.angle = 15
