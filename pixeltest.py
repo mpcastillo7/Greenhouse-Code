@@ -10,3 +10,4 @@ pixels = neopixel.NeoPixel(pixel_pin, num_pixels, brightness=0.2, auto_write=Fal
 
 #test
 pixels[0] = (255, 0, 0)
+time.sleep(10)
